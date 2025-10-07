@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de usuarios</title>
+    <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+    <main class="users-landing">
+        <div class="users-container">
+            <div class="users-header">
+                <button class="btn primary"><a href="../index.html">regresar</a></button>
+                <h1>Listado de usuarios</h1>
+                <div class="search">
+                    <input type="search" placeholder="Buscar por nombre o correo" aria-label="Buscar usuarios">
+                    <button class="btn primary">Buscar</button>
+                </div>
+            </div>
+
+            <section class="card">
+                <table class="user-list" aria-label="Tabla de usuarios">
+                    <thead>
+                        <tr>
+                            <th>Usuario</th>
+                            <th>Correo</th>
+                            <th>Rol</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="avatar">AL</span> <span style="margin-left:10px">Alejandro López</span></td>
+                            <td>alejandro@example.com</td>
+                            <td>Administrador</td>
+                            <td class="actions">Ver • Editar</td>
+                        </tr>
+                        <tr>
+                            <td><span class="avatar">MC</span> <span style="margin-left:10px">María Cruz</span></td>
+                            <td>maria@example.com</td>
+                            <td>Usuario</td>
+                            <td class="actions">Ver • Editar</td>
+                        </tr>
+                        <tr>
+                            <td><span class="avatar">JP</span> <span style="margin-left:10px">Juan Pérez</span></td>
+                            <td>juan@example.com</td>
+                            <td>Usuario</td>
+                            <td class="actions">Ver • Editar</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </div>
+    </main>
+</body>
+</html>

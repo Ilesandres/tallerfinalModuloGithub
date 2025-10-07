@@ -1,0 +1,125 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Variables locales para esta página */
+:root {
+    --bg: #f4f7fb;
+    --card: #ffffff;
+    --primary: #3b82f6;
+    --muted: #6b7280;
+    --accent: #7c3aed;
+}
+
+/* Estilos mínimos específicos para esta página */
+.users-landing {
+    padding: 28px;
+    min-height: 100vh;
+    background: var(--bg);
+    color: #0f172a
+}
+
+.users-container {
+    max-width: 980px;
+    margin: 0 auto
+}
+
+.users-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 18px
+}
+
+.users-header h1 {
+    font-size: 20px
+}
+
+.search {
+    display: flex;
+    gap: 8px
+}
+
+.search input {
+    padding: 8px 10px;
+    border-radius: 8px;
+    border: 1px solid #e6e9ef
+}
+
+.card {
+    background: var(--card);
+    padding: 18px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(2, 6, 23, 0.06)
+}
+
+.user-list {
+    width: 100%;
+    border-collapse: collapse
+}
+
+.user-list th,
+.user-list td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #f1f5f9;
+    font-size: 14px
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    color: #fff;
+    font-weight: 600
+}
+
+.actions {
+    color: var(--primary)
+}
+
+/* Botones mínimos (utilizados en el HTML) */
+.btn {
+    border: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    background: transparent
+}
+
+.btn.primary {
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    color: #fff;
+    font-weight: 600
+}
+
+a{
+    color: #fff;
+    text-decoration: none;
+}
+
+@media (max-width:640px) {
+    .user-list thead {
+        display: none
+    }
+
+    .user-list tr {
+        display: block;
+        margin-bottom: 12px
+    }
+
+    .user-list td {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+        background: transparent;
+        border: none
+    }
+}
