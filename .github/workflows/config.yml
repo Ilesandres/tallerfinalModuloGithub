@@ -1,0 +1,61 @@
+name: Integracion y despliegue continuo
+
+on:
+    push:
+        branches: [ main ]
+    pull_request:
+        branches: [ main ]
+    workflow_dispatch:
+    
+concurrency:
+    group: 'CI-CD-GHPAGES'
+    cancel-in-progress: true
+
+jobs:
+    verificar_existencia_archivos:
+        runs-on: ubuntu-latest
+        steps:
+          - name: checkout repositorio
+            uses: actions/checkout@v4
+        
+          - name: mostrar archivos
+            run: ls -R
+
+          - name: verificar existencia de archivos
+            run: |
+                if [ -f "index.html" ] && [ -f "login.html" ] && [ -f "listado-usuarios/listadoUsuarios.html" ] && [ -f "listado-usuarios/style.css" ]; then
+                    echo "Todos los archivos existen."
+                else
+                    echo "Faltan uno o más archivos requeridos."
+                    exit 1
+                fi
+
+    desplegar_pagina:
+        needs: verificar_existencia_archivos
+        if: github.ref == 'refs/heads/main'
+        runs-on: ubuntu-latest
+        environment:
+            name: github-pages
+            url: ${{ steps.deployment.outputs.page_url }}
+
+        permissions:
+            contents: read
+            pages: write
+            id-token: write
+
+        steps: 
+            - name: checkout del repo
+              uses: actions/checkout@v4
+
+            - name: configurar gitHub pages
+              uses: actions/configure-pages@v5
+
+            - name: subir archivos de despliegue
+              uses: actions/upload-pages-artifact@v3
+              with:
+                path: /
+            
+            - name: desplegar a Github pages
+              id: deployment
+              uses: actions/deploy-pages@v4
+
